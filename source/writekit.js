@@ -1,14 +1,31 @@
 import React from 'react'; 
-import ReactDOM from 'react-dom'; 
+import { render } from 'react-dom'
+import {
+  BrowserRouter as Router,
+  Route, Link
+} from 'react-router-dom'; 
+
+// Components
+import SideBar from './js/sidebar'; 
+import Display from './js/display'; 
+
+const appstyle = {
+  'display': 'flex',
+  'flexDirection': 'row',
+  'height': 'inherit'
+}
 
 export default class WriteKitApp extends React.Component {
   render() {
     return (
-      <div>
-        <p>Text goes here</p>
+      <div style={appstyle}>
+        <SideBar />
+        <Display />
       </div>
     )
   }
 }
 
-ReactDOM.render(<WriteKitApp />, document.getElementById('window')); 
+render( (
+  <Router><WriteKitApp /></Router>
+), document.getElementById('window')); 
